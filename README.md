@@ -5,4 +5,6 @@ Este desafio me ajudou a fixar os conceceitos básicos, tanto sobre a linguagem,
 
 Desafio concluído!
 
-Vídeo do app funcionando, adicionado junto aos arquivos do projeto.
+Vídeo do app funcionando, abaixo.
+
+https://github.com/FelipeBrandaoFigueiredo/App-Lista-de-Filmes/assets/128430670/1e08d136-67da-472e-817f-279328a85cb4
