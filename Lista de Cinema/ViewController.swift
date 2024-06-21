@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     @IBOutlet weak var textFieldFavorites: UITextField!
     
     @IBOutlet weak var buttonFavorites: UIButton!
@@ -62,37 +63,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func exibirListas(_ sender: UIButton?) {
+        
         // Mostrar lista de filmes favoritos
-        if !listaFilmesFavoritos.isEmpty {
-            tituloFavorites.alpha = 1.0
-            textViewFavorites.alpha = 1.0
-            buttonFecharLista.alpha = 1.0
-            
-            var textoLista = ""
-            for listaFavoritos in listaFilmesFavoritos {
-                textoLista += listaFavoritos + "\n"
-            }
-            textViewFavorites.text = textoLista
-        } else {
-            textViewFavorites.alpha = 0.0
-            tituloFavorites.alpha = 0.0
-        }
+        exibirListaDeFilmes(titulo: tituloFavorites, textView: textViewFavorites, buttonFechar: buttonFecharLista, arrayLista: listaFilmesFavoritos)
         
         // Mostrar lista de filmes de interesse
-        if !listaFilmesInteresse.isEmpty {
-            tituloInteresse.alpha = 1.0
-            textViewInteresse.alpha = 1.0
-            buttonFecharLista.alpha = 1.0
-            
-            var textoLista = ""
-            for listaInteresse in listaFilmesInteresse {
-                textoLista += listaInteresse + "\n"
-            }
-            textViewInteresse.text = textoLista
-        } else {
-            textViewInteresse.alpha = 0.0
-            tituloInteresse.alpha = 0.0
-        }
+        exibirListaDeFilmes(titulo: tituloInteresse, textView: textViewInteresse, buttonFechar: buttonFecharLista, arrayLista: listaFilmesInteresse)
+        
     }
     
     @IBAction func fecharListas(_ sender: Any) {
@@ -107,5 +84,23 @@ class ViewController: UIViewController {
         // Verificar e habilitar botão correspondente
         buttonFavorites.isEnabled = !textFieldFavorites.text!.isEmpty
         buttonInteresse.isEnabled = !textFieldInteresse.text!.isEmpty
+    }
+    
+    func exibirListaDeFilmes (titulo: UILabel, textView: UITextView, buttonFechar: UIButton, arrayLista: [String]){
+        if !arrayLista.isEmpty {
+            titulo.alpha = 1.0
+            textView.alpha = 1.0
+            buttonFechar.alpha = 1.0
+            
+            var textoLista = ""
+            for listaFavoritos in arrayLista {
+                textoLista += listaFavoritos + "\n"
+            }
+            textView.text = textoLista
+        } else {
+            textView.alpha = 0.0
+            titulo.alpha = 0.0
+        }
+        
     }
 }
